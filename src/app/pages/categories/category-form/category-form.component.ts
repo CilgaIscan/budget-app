@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { Category } from '../interfaces/category.interface';
 
 @Component({
   selector: 'app-category-form',
@@ -8,15 +11,19 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./category-form.component.scss']
 })
 export class CategoryFormComponent implements OnInit {
-
-  categoryForm = new FormGroup({
+  public categoryForm = new FormGroup({
     name: new FormControl(null, [Validators.required ,Validators.minLength(3)]),
     icon: new FormControl(null)
   });
 
-  constructor(private readonly location: Location) { }
+  protected categoryUrl = 'http://localhost:3000/categories';
+
+  constructor(private readonly location: Location, private http: HttpClient) { }
 
   ngOnInit(): void {
+    if (this.isEditMode) {
+      this.getFormData();
+    }
   }
 
   public get isEditMode(): Boolean {
@@ -28,6 +35,26 @@ export class CategoryFormComponent implements OnInit {
   }
 
   public save(): void {
-    alert('not implemented!');
+    if(!this.isEditMode) {
+      this.http.post(this.categoryUrl,this.categoryForm.value).subscribe(() => {
+       this.goBack();
+      });
+    } else {
+      this.http.put(this.categoryUrl + "/" + this.id ,this.categoryForm.value).subscribe(() => {
+        this.goBack();
+      })
+    }
+  }
+
+  private get id() {
+    const parts = this.location.path().split("/");
+    return parts[parts.length - 1];
+  }
+
+  private getFormData() {
+    this.http.get<Category>(this.categoryUrl + "/" + this.id).subscribe((data) => {
+      delete data["id"];
+      this.categoryForm.setValue(data);
+    })
   }
 }

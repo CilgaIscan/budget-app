@@ -1,34 +1,9 @@
 {
   "categories": [
     {
-      "name": "xxx",
-      "icon": "yy",
-      "id": 1
-    },
-    {
-      "name": "xxx",
-      "icon": "yy",
+      "name": "cat 3",
+      "icon": "3",
       "id": 2
-    },
-    {
-      "name": "xxx",
-      "icon": "yy",
-      "id": 3
-    },
-    {
-      "name": "xxx",
-      "icon": "yy",
-      "id": 4
-    },
-    {
-      "name": "xxx",
-      "icon": "yy",
-      "id": 5
-    },
-    {
-      "name": "xxx",
-      "icon": "yy",
-      "id": 6
     }
   ]
 }

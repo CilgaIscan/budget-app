@@ -3,10 +3,6 @@
         <app-input [control]="categoryForm.get('name')" label="Name"></app-input>
         <br>
         <app-input [control]="categoryForm.get('icon')" label="Icon"></app-input>
-        <br>
-        <pre>IsEditMode: {{isEditMode}}</pre>
-        <pre>CategoryForm: {{categoryForm.value | json}}</pre>
-        <pre>IsFormValid: {{categoryForm.valid}}</pre>
         <div class="action-buttons">
             <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">Cancel</button>
             <button mat-raised-button color="primary" aria-label="Save" type="submit" [disabled]="categoryForm.invalid">Save</button>

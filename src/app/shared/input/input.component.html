@@ -1,0 +1,18 @@
+<mat-form-field appearance="fill">
+  <mat-label>{{label}}</mat-label>
+  <input matInput [formControl]="control">
+</mat-form-field>
+<ng-container *ngIf="control?.touched && errors">
+  <br>
+  <span *ngIf="errors?.['required']">
+      * Required field!
+  </span>
+  <span *ngIf="errors?.['minlength']">
+      * Input length must be at least {{errors?.['minlength']?.['requiredLength']}} character long!
+  </span>
+  <span *ngIf="errors?.['maxlength']">
+    * Input length must be at most {{errors?.['maxlength']?.['requiredLength']}} character long!
+</span>
+</ng-container>
+
+<pre>FormErrors: {{errors |json}}</pre>

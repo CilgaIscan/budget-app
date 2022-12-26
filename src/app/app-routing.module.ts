@@ -5,7 +5,12 @@ import { CategoryFormComponent } from './pages/categories/category-form/category
 
 const routes: Routes = [
   { path: 'categories/new', component: CategoryFormComponent },
+  { path: 'categories/edit/:id', component: CategoryFormComponent },
   { path: 'categories', component: CategoriesComponent },
+  { path: 'expense/new', component: CategoryFormComponent },
+  { path: 'expenses', component: CategoriesComponent },
+  { path: 'payment-method/new', component: CategoryFormComponent },
+  { path: 'payment-methods', component: CategoriesComponent },
   { path: '', component: CategoriesComponent },
 ];
 

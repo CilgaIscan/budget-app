@@ -1,14 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
-export interface Category {
-  name: string,
-  icon: string
-}
-
-const DATA: Category[] = [
-  {name: "Groceries", icon: "vegetable"},
-  {name: "Pharmacy", icon: "pill"},
-]
+import { Category } from '../interfaces/category.interface';
 
 @Component({
   selector: 'app-category-list',
@@ -16,13 +11,34 @@ const DATA: Category[] = [
   styleUrls: ['./category-list.component.scss']
 })
 export class CategoryListComponent implements OnInit {
- 
-  displayedColumns = ["name", "icon"];
-  initialData = DATA;
+  public displayedColumns = ["name", "icon", "actions"];
+  public categories: Category[] = [];
+  protected categoryUrl = 'http://localhost:3000/categories';
 
-  constructor() { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    this.showCategory();
   }
 
+  public deleteCategory(id: number) {
+    this.http.delete(this.categoryUrl + "/" + id).subscribe(() => {
+      this.showCategory();
+    });
+  }
+
+  public editCategory(id: number) {
+    return this.router.navigate([`/categories/edit/${id}`]);
+  }
+
+  private getCategory(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.categoryUrl);
+  }
+
+  private showCategory() {
+    this.getCategory()
+      .subscribe((data: Category[]) => {
+        this.categories = data;
+      });
+  }
 }

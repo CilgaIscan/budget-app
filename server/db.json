@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "name": "xxx",
+      "icon": "yy",
+      "id": 1
+    },
+    {
+      "name": "xxx",
+      "icon": "yy",
+      "id": 2
+    },
+    {
+      "name": "xxx",
+      "icon": "yy",
+      "id": 3
+    },
+    {
+      "name": "xxx",
+      "icon": "yy",
+      "id": 4
+    },
+    {
+      "name": "xxx",
+      "icon": "yy",
+      "id": 5
+    },
+    {
+      "name": "xxx",
+      "icon": "yy",
+      "id": 6
+    }
+  ]
+}

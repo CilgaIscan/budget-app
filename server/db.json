@@ -4,6 +4,15 @@
       "name": "cat 3",
       "icon": "3",
       "id": 2
+    },
+    {
+      "name": "xxx",
+      "icon": "yy",
+      "id": 3
     }
-  ]
+  ],
+
+  "paymentTypes": [],
+  
+  "expenses": []
 }

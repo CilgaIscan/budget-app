@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from 'src/material.module';
 import { CategoriesModule } from './pages/categories/categories.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PaymentMethodsModule } from './pages/payment-methods/payment-methods.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MaterialModule,
     SharedModule,
     CategoriesModule,
+    PaymentMethodsModule,
     BrowserAnimationsModule
   ],
   providers: [],

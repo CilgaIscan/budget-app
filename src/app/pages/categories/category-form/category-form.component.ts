@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Category } from '../interfaces/category.interface';
 
 @Component({
@@ -12,7 +12,7 @@ import { Category } from '../interfaces/category.interface';
 })
 export class CategoryFormComponent implements OnInit {
   public categoryForm = new FormGroup({
-    name: new FormControl(null, [Validators.required ,Validators.minLength(3)]),
+    name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
     icon: new FormControl(null)
   });
 
@@ -35,14 +35,16 @@ export class CategoryFormComponent implements OnInit {
   }
 
   public save(): void {
-    if(!this.isEditMode) {
-      this.http.post(this.categoryUrl,this.categoryForm.value).subscribe(() => {
-       this.goBack();
-      });
-    } else {
-      this.http.put(this.categoryUrl + "/" + this.id ,this.categoryForm.value).subscribe(() => {
-        this.goBack();
-      })
+    if (this.categoryForm.dirty) {
+      if (!this.isEditMode) {
+        this.http.post(this.categoryUrl, this.categoryForm.value).subscribe(() => {
+          this.goBack();
+        });
+      } else {
+        this.http.put(this.categoryUrl + "/" + this.id, this.categoryForm.value).subscribe(() => {
+          this.goBack();
+        })
+      }
     }
   }
 

@@ -23,12 +23,16 @@
       "icon": "card",
       "type": "Debit Card",
       "id": 2
+    }
+  ],
+  "payment-method-types": [
+    {
+      "name": "Credit Card",
+      "id": 1
     },
     {
-      "name": "category 3",
-      "icon": "1",
-      "type": "category 2",
-      "id": 3
+      "name": "Debit Card",
+      "id": 2
     }
   ],
   "expenses": []

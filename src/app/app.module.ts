@@ -9,6 +9,7 @@ import { MaterialModule } from 'src/material.module';
 import { CategoriesModule } from './pages/categories/categories.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaymentMethodsModule } from './pages/payment-methods/payment-methods.module';
+import { PaymentMethodTypesModule } from './pages/payment-method-types/payment-method-types.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PaymentMethodsModule } from './pages/payment-methods/payment-methods.mo
     SharedModule,
     CategoriesModule,
     PaymentMethodsModule,
+    PaymentMethodTypesModule,
     BrowserAnimationsModule
   ],
   providers: [],

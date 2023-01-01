@@ -1,0 +1,10 @@
+<section class="form">
+  <form [formGroup]="paymentMethodTypeForm" (ngSubmit)="save()">
+      <app-input [control]="paymentMethodTypeForm.get('name')" label="Name"></app-input>
+      <br>
+      <div class="action-buttons">
+          <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">Cancel</button>
+          <button mat-raised-button color="primary" aria-label="Save" type="submit" [disabled]="paymentMethodTypeForm.invalid">Save</button>
+      </div>
+  </form>
+</section>

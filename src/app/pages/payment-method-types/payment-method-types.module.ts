@@ -6,16 +6,16 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/material.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
-import { PaymentMethodsComponent } from './payment-methods.component';
-import { PaymentMethodFormComponent } from './payment-method-form/payment-method-form.component';
-import { PaymentMethodListComponent } from './payment-method-list/payment-method-list.component';
+import { PaymentMethodTypesComponent } from './payment-method-types.component';
+import { PaymentMethodTypeFormComponent } from './payment-method-type-form/payment-method-type-form.component';
+import { PaymentMethodTypeListComponent } from './payment-method-type-list/payment-method-type-list.component';
 
 
 @NgModule({
   declarations: [
-    PaymentMethodsComponent,
-    PaymentMethodFormComponent,
-    PaymentMethodListComponent
+    PaymentMethodTypesComponent,
+    PaymentMethodTypeFormComponent,
+    PaymentMethodTypeListComponent
   ],
   imports: [
     CommonModule,
@@ -25,4 +25,4 @@ import { PaymentMethodListComponent } from './payment-method-list/payment-method
     SharedModule
   ]
 })
-export class PaymentMethodsModule { }
+export class PaymentMethodTypesModule { }

@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 import { PaymentMethodType } from '../interfaces/payment-method-types.interface';
+import { PaymentMethodTypeService } from '../payment-method-type.service';
 
 @Component({
   selector: 'app-payment-method-type-list',
@@ -14,16 +13,15 @@ export class PaymentMethodTypeListComponent implements OnInit {
 
   public displayedColumns = ["name", "actions"];
   public paymentMethodTypes: PaymentMethodType[] = [];
-  protected paymentMethodTypeUrl = 'http://localhost:3000/payment-method-types';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private router: Router, private paymentMethodTypeService: PaymentMethodTypeService) { }
 
   ngOnInit(): void {
     this.showPaymentMethodTypes();
   }
 
-  public deletePaymentMethodType(id: number) {
-    this.http.delete(this.paymentMethodTypeUrl + "/" + id).subscribe(() => {
+  public deletePaymentMethodType(id: string) {
+    this.paymentMethodTypeService.delete(id).subscribe(() => {
       this.showPaymentMethodTypes();
     });
   }
@@ -32,12 +30,8 @@ export class PaymentMethodTypeListComponent implements OnInit {
     return this.router.navigate([`/payment-method-types/edit/${id}`]);
   }
 
-  private getPaymentMethodTypes(): Observable<PaymentMethodType[]> {
-    return this.http.get<PaymentMethodType[]>(this.paymentMethodTypeUrl);
-  }
-
   private showPaymentMethodTypes() {
-    this.getPaymentMethodTypes()
+    this.paymentMethodTypeService.getAll()
       .subscribe((data: PaymentMethodType[]) => {
         this.paymentMethodTypes = data;
       });

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PaymentMethodType } from '../interfaces/payment-method-types.interface';
+import { PaymentMethodTypeService } from '../payment-method-type.service';
 
 @Component({
   selector: 'app-payment-method-type-form',
@@ -15,9 +14,7 @@ export class PaymentMethodTypeFormComponent implements OnInit {
     name: new FormControl(null, [Validators.required, Validators.minLength(3)])
   });
 
-  protected paymentMethodTypeUrl = 'http://localhost:3000/payment-method-types';
-
-  constructor(private readonly location: Location, private http: HttpClient) { }
+  constructor(private readonly location: Location, private paymentMethodTypeService: PaymentMethodTypeService) { }
 
   ngOnInit(): void {
     if (this.isEditMode) {
@@ -36,11 +33,11 @@ export class PaymentMethodTypeFormComponent implements OnInit {
   public save(): void {
     if (this.paymentMethodTypeForm.dirty) {
       if (!this.isEditMode) {
-        this.http.post(this.paymentMethodTypeUrl, this.paymentMethodTypeForm.value).subscribe(() => {
+        this.paymentMethodTypeService.create(this.paymentMethodTypeForm.value).subscribe(() => {
           this.goBack();
         });
       } else {
-        this.http.put(this.paymentMethodTypeUrl + "/" + this.id, this.paymentMethodTypeForm.value).subscribe(() => {
+        this.paymentMethodTypeService.update(this.id, this.paymentMethodTypeForm.value).subscribe(() => {
           this.goBack();
         })
       }
@@ -53,7 +50,7 @@ export class PaymentMethodTypeFormComponent implements OnInit {
   }
 
   private getFormData() {
-    this.http.get<PaymentMethodType>(this.paymentMethodTypeUrl + "/" + this.id).subscribe((data) => {
+    this.paymentMethodTypeService.getById(this.id).subscribe((data) => {
       delete data["id"];
       this.paymentMethodTypeForm.setValue(data);
     })

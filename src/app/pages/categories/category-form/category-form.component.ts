@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Category } from '../interfaces/category.interface';
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-category-form',
@@ -17,9 +17,7 @@ export class CategoryFormComponent implements OnInit {
     color: new FormControl(null)
   });
 
-  protected categoryUrl = 'http://localhost:3000/categories';
-
-  constructor(private readonly location: Location, private http: HttpClient) { }
+  constructor(private readonly location: Location, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     if (this.isEditMode) {
@@ -38,11 +36,11 @@ export class CategoryFormComponent implements OnInit {
   public save(): void {
     if (this.categoryForm.dirty) {
       if (!this.isEditMode) {
-        this.http.post(this.categoryUrl, this.categoryForm.value).subscribe(() => {
+        this.categoryService.create(this.categoryForm.value).subscribe(() => {
           this.goBack();
         });
       } else {
-        this.http.put(this.categoryUrl + "/" + this.id, this.categoryForm.value).subscribe(() => {
+        this.categoryService.update(this.id, this.categoryForm.value).subscribe(() => {
           this.goBack();
         })
       }
@@ -55,7 +53,7 @@ export class CategoryFormComponent implements OnInit {
   }
 
   private getFormData() {
-    this.http.get<Category>(this.categoryUrl + "/" + this.id).subscribe((data) => {
+    this.categoryService.getById(this.id).subscribe((data) => {
       delete data["id"];
       this.categoryForm.setValue(data);
     })

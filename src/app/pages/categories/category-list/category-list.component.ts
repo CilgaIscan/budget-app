@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 import { Category } from '../interfaces/category.interface';
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-category-list',
@@ -13,16 +12,15 @@ import { Category } from '../interfaces/category.interface';
 export class CategoryListComponent implements OnInit {
   public displayedColumns = ["name", "icon", "color", "actions"];
   public categories: Category[] = [];
-  protected categoryUrl = 'http://localhost:3000/categories';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private router: Router, private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.showCategory();
   }
 
-  public deleteCategory(id: number) {
-    this.http.delete(this.categoryUrl + "/" + id).subscribe(() => {
+  public deleteCategory(id: string) {
+    this.categoryService.delete(id).subscribe(() => {
       this.showCategory();
     });
   }
@@ -31,12 +29,8 @@ export class CategoryListComponent implements OnInit {
     return this.router.navigate([`/categories/edit/${id}`]);
   }
 
-  private getCategory(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.categoryUrl);
-  }
-
   private showCategory() {
-    this.getCategory()
+    this.categoryService.getAll()
       .subscribe((data: Category[]) => {
         this.categories = data;
       });

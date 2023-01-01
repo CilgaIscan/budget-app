@@ -13,7 +13,8 @@ import { Category } from '../interfaces/category.interface';
 export class CategoryFormComponent implements OnInit {
   public categoryForm = new FormGroup({
     name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    icon: new FormControl(null)
+    icon: new FormControl(null),
+    color: new FormControl(null)
   });
 
   protected categoryUrl = 'http://localhost:3000/categories';

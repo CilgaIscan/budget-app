@@ -11,7 +11,7 @@ import { Category } from '../interfaces/category.interface';
   styleUrls: ['./category-list.component.scss']
 })
 export class CategoryListComponent implements OnInit {
-  public displayedColumns = ["name", "icon", "actions"];
+  public displayedColumns = ["name", "icon", "color", "actions"];
   public categories: Category[] = [];
   protected categoryUrl = 'http://localhost:3000/categories';
 

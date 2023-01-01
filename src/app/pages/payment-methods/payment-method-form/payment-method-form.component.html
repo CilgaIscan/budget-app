@@ -4,7 +4,7 @@
       <br>
       <app-input [control]="paymentMethodForm.get('icon')" label="Icon"></app-input>
       <br>
-      <app-input [control]="paymentMethodForm.get('type')" label="Type"></app-input>
+      <app-select [control]="paymentMethodForm.get('type')" [options]="paymentMethodTypeOptions" label="Type"></app-select>
       <div class="action-buttons">
           <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">Cancel</button>
           <button mat-raised-button color="primary" aria-label="Save" type="submit" [disabled]="paymentMethodForm.invalid">Save</button>

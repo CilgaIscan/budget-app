@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PaymentMethod } from '../interfaces/payment-methods.interface';
+import { PaymentMethodService } from '../payment-method.service';
+import { PaymentMethodType } from '../../payment-method-types/interfaces/payment-method-types.interface';
+import { PaymentMethodTypeService } from '../../payment-method-types/payment-method-type.service';
 
 @Component({
   selector: 'app-payment-method-form',
@@ -11,18 +12,18 @@ import { PaymentMethod } from '../interfaces/payment-methods.interface';
   styleUrls: ['./payment-method-form.component.scss']
 })
 export class PaymentMethodFormComponent implements OnInit {
+  public paymentMethodTypeOptions: any[] = [];
+
   public paymentMethodForm = new FormGroup({
     name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
     icon: new FormControl(null),
     type: new FormControl(null, [Validators.required, Validators.minLength(3)])
   });
 
-  protected paymentTypeUrl = 'http://localhost:3000/payment-methods';
-
-
-  constructor(private readonly location: Location, private http: HttpClient) { }
+  constructor(private readonly location: Location, private paymentMethodService: PaymentMethodService, private paymentMethodTypeService: PaymentMethodTypeService) { }
 
   ngOnInit(): void {
+    this.getPaymentMethodTypes();
     if (this.isEditMode) {
       this.getFormData();
     }
@@ -39,11 +40,11 @@ export class PaymentMethodFormComponent implements OnInit {
   public save(): void {
     if (this.paymentMethodForm.dirty) {
       if (!this.isEditMode) {
-        this.http.post(this.paymentTypeUrl, this.paymentMethodForm.value).subscribe(() => {
+        this.paymentMethodService.create(this.paymentMethodForm.value).subscribe(() => {
           this.goBack();
         });
       } else {
-        this.http.put(this.paymentTypeUrl + "/" + this.id, this.paymentMethodForm.value).subscribe(() => {
+        this.paymentMethodService.update(this.id, this.paymentMethodForm.value).subscribe(() => {
           this.goBack();
         })
       }
@@ -56,10 +57,22 @@ export class PaymentMethodFormComponent implements OnInit {
   }
 
   private getFormData() {
-    this.http.get<PaymentMethod>(this.paymentTypeUrl + "/" + this.id).subscribe((data) => {
+    this.paymentMethodService.getById(this.id).subscribe((data) => {
       delete data["id"];
+      delete data["created_at"];
+      delete data["updated_at"];
       this.paymentMethodForm.setValue(data);
     })
   }
 
+  private getPaymentMethodTypes() {
+    this.paymentMethodTypeService.getAll().subscribe((data: PaymentMethodType[]) => {
+      this.paymentMethodTypeOptions = data.map((pmt: PaymentMethodType) => {
+        return {
+          viewValue: pmt.name,
+          value: pmt.id
+        }
+      });
+    })
+  }
 }

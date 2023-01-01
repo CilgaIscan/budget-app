@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { InputComponent } from './input/input.component';
 
 import { MaterialModule } from 'src/material.module';
+import { SelectComponent } from './select/select.component';
 
 
 
@@ -14,7 +15,8 @@ import { MaterialModule } from 'src/material.module';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    InputComponent
+    InputComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { MaterialModule } from 'src/material.module';
   exports: [
     HeaderComponent,
     FooterComponent,
-    InputComponent
+    InputComponent,
+    SelectComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,22 @@
+<section class="form">
+  <form [formGroup]="expenseForm" (ngSubmit)="save()">
+      <app-input [control]="expenseForm.get('title')" label="Title"></app-input>
+      <br>
+      <app-select [control]="expenseForm.get('category')" [options]="categoryOptions" label="Category"></app-select>
+      <br>
+      <app-input [control]="expenseForm.get('amount')" label="Amount"></app-input>
+      <br>
+      <app-select [control]="expenseForm.get('payment_method')" [options]="paymentMethodOptions" label="Payment Method"></app-select>
+      <br>
+      <app-input [control]="expenseForm.get('paid_at')" label="Date"></app-input>
+      <br>
+      <app-input [control]="expenseForm.get('store')" label="Store"></app-input>
+      <br>
+      <app-input [control]="expenseForm.get('description')" label="Description"></app-input>
+      <br>
+      <div class="action-buttons">
+          <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">Cancel</button>
+          <button mat-raised-button color="primary" aria-label="Save" type="submit" [disabled]="expenseForm.invalid">Save</button>
+      </div>
+  </form>
+</section>

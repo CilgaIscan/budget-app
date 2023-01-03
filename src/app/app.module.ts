@@ -10,6 +10,7 @@ import { CategoriesModule } from './pages/categories/categories.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaymentMethodsModule } from './pages/payment-methods/payment-methods.module';
 import { PaymentMethodTypesModule } from './pages/payment-method-types/payment-method-types.module';
+import { ExpensesModule } from './pages/expenses/expenses.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PaymentMethodTypesModule } from './pages/payment-method-types/payment-m
     MaterialModule,
     SharedModule,
     CategoriesModule,
+    ExpensesModule,
     PaymentMethodsModule,
     PaymentMethodTypesModule,
     BrowserAnimationsModule

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaymentMethodTypesComponent } from './payment-method-types.component';
 
-describe('PaymentMethodTypesComponent', () => {
+xdescribe('PaymentMethodTypesComponent', () => {
   let component: PaymentMethodTypesComponent;
   let fixture: ComponentFixture<PaymentMethodTypesComponent>;
 

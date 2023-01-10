@@ -45,7 +45,7 @@ describe('ExpenseService', () => {
 
   it('should be able to create category', () => {
     const newBody = {
-      title: 'Eating Out in Jeffs', 
+      title: 'Eating Out in Jeffs',
       amount: "100",
       paid_at: "",
       store: "Jeff's Burger",

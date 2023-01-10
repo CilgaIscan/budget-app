@@ -45,7 +45,7 @@ describe('PaymentMethodService', () => {
   });
 
   it('should be able to create payment method', () => {
-    const newBody = { name: 'MyBenefit', icon: 'gift', type: 2};
+    const newBody = { name: 'MyBenefit', icon: 'gift', type: 2 };
 
     service.create(newBody).subscribe(pm => {
       expect(pm).toBeTruthy();

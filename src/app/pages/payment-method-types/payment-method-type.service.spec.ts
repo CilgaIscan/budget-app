@@ -57,7 +57,7 @@ describe('PaymentMethodTypeService', () => {
       ...PaymentMethodTypes[1],
       name: newBody.name,
       id: 3
-    }
+    };
     mockReq.flush(response);
   });
 
@@ -71,8 +71,11 @@ describe('PaymentMethodTypeService', () => {
 
     const mockReq = testingController.expectOne(baseUrl + "/2");
     expect(mockReq.request.method).toBe('PUT');
-    const response = PaymentMethodTypes[2];
-    response.name = changes.name;
+    const response = {
+      ...PaymentMethodTypes[2],
+      name: changes.name,
+      id: 3
+    };
     mockReq.flush(response);
   });
 

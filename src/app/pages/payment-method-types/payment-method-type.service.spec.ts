@@ -35,7 +35,6 @@ describe('PaymentMethodTypeService', () => {
   it('should be able to get payment method type by id', () => {
     service.getById('1').subscribe(pmt => {
       expect(pmt).toBeTruthy();
-      console.log(pmt)
       expect(pmt.name).toBe('Cash');
     });
 
@@ -49,7 +48,6 @@ describe('PaymentMethodTypeService', () => {
 
     service.create(newBody).subscribe(pmt => {
       expect(pmt).toBeTruthy();
-      console.log(pmt)
       expect(pmt.name).toBe(newBody.name);
     });
 
@@ -68,7 +66,6 @@ describe('PaymentMethodTypeService', () => {
 
     service.update('2', changes).subscribe(pmt => {
       expect(pmt).toBeTruthy();
-      console.log(pmt)
       expect(pmt.name).toBe(changes.name);
     });
 
@@ -79,7 +76,7 @@ describe('PaymentMethodTypeService', () => {
     mockReq.flush(response);
   });
 
-  it('should be able to delete payment method type by id', () => {
+  it('should be able to delete payment method type', () => {
     service.delete('1').subscribe(pmt => {
       expect(pmt).toBeFalsy();
     });

@@ -43,7 +43,37 @@ describe('ExpenseService', () => {
     mockReq.flush(Expenses[1]);
   });
 
-  it('should be able to create category', () => {
+  it('should be able to update expense', () => {
+    const changes = {
+      title: 'Drinking Out in Starbucks',
+      amount: "50",
+      paid_at: "",
+      store: "Starbucks",
+      payment_method: 2,
+      category: 2
+    };
+
+    service.update("1", changes).subscribe(exp => {
+      expect(exp).toBeTruthy();
+      expect(exp.title).toBe(changes.title);
+    });
+
+    const mockReq = testingController.expectOne(baseUrl + "/1");
+    expect(mockReq.request.method).toBe('PUT');
+    const response = {
+      ...Expenses[1],
+      title: changes.title,
+      amount: changes.amount,
+      store: changes.store,
+      paid_at: changes.paid_at,
+      payment_method: changes.payment_method,
+      category: changes.category
+    };
+    mockReq.flush(response);
+  });
+
+
+  it('should be able to create expense', () => {
     const newBody = {
       title: 'Eating Out in Jeffs',
       amount: "100",

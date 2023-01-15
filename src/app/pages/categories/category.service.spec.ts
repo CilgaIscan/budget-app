@@ -63,6 +63,26 @@ describe('CategoryService', () => {
     mockReq.flush(response);
   });
 
+  it('should be able to update category', () => {
+    const changes = { name: 'Drinking Out', icon: 'beer', color: 'red' };
+
+    service.update('1', changes).subscribe(c => {
+      expect(c).toBeTruthy();
+      expect(c.icon).toBe(changes.icon);
+    });
+
+    const mockReq = testingController.expectOne(baseUrl + "/1");
+    expect(mockReq.request.method).toBe('PUT');
+    const response = {
+      ...Categories[1],
+      name: changes.name,
+      icon: changes.icon,
+      color: changes.color,
+      id: 1
+    };
+    mockReq.flush(response);
+  });
+
   it('should be able to delete category', () => {
     service.delete('1').subscribe(c => {
       expect(c).toBeFalsy();

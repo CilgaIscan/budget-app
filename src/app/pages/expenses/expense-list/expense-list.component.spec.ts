@@ -5,6 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { routes } from 'src/app/app-routing.module';
+
 import { Expenses, FakeExpenseService } from 'src/app/mock-data/expenses';
 import { ExpenseService } from '../expense.service';
 
@@ -17,7 +18,7 @@ describe('ExpenseListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExpenseListComponent ],
+      declarations: [ExpenseListComponent],
       imports: [
         RouterTestingModule.withRoutes(routes), HttpClientTestingModule, MatTableModule,
       ],
@@ -25,7 +26,7 @@ describe('ExpenseListComponent', () => {
         { provide: ExpenseService, useClass: FakeExpenseService },
       ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -50,7 +51,6 @@ describe('ExpenseListComponent', () => {
         return el.nativeElement.innerHTML.trim();
       })).toEqual(['Date', 'Title', 'Category', 'Amount', 'By', 'Store', 'Actions']);
 
-      
       // content
       const cells = table.queryAll(By.css('tbody > tr:nth-child(1) > td'));
       console.log(cells[0].nativeElement);
@@ -64,8 +64,11 @@ describe('ExpenseListComponent', () => {
 
       expect(cells[6].queryAll(By.css('button'))[0].nativeElement.textContent).toBe('Delete');
       expect(cells[6].queryAll(By.css('button'))[1].nativeElement.textContent).toBe('Edit');
-      
+
       done();
     })
   });
+
+  // TODO: Add test for delete button
+  // TODO: Add test for edit button
 });

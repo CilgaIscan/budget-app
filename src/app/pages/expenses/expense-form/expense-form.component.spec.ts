@@ -1,6 +1,7 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+
 import { FakeCategoryService } from 'src/app/mock-data/categories';
 import { FakeExpenseService } from 'src/app/mock-data/expenses';
 import { FakePmService } from 'src/app/mock-data/payment-methods';
@@ -17,7 +18,7 @@ describe('ExpenseFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExpenseFormComponent ],
+      declarations: [ExpenseFormComponent],
       providers: [
         {
           provide: PaymentMethodService,
@@ -33,7 +34,7 @@ describe('ExpenseFormComponent', () => {
         },
       ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -52,4 +53,6 @@ describe('ExpenseFormComponent', () => {
     expect(buttons[0].nativeElement.textContent).toBe('Cancel');
     expect(buttons[1].nativeElement.textContent).toBe('Save');
   });
+
+  // TODO: Add test for form validation.
 });

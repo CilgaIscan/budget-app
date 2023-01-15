@@ -17,10 +17,10 @@ describe('ExpensesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExpensesComponent ],
-      imports: [ RouterTestingModule.withRoutes(routes) ],
+      declarations: [ExpensesComponent],
+      imports: [RouterTestingModule.withRoutes(routes)],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -57,7 +57,7 @@ describe('ExpensesComponent', () => {
     })
   }));
 
-  it ('should have app-expense-list component', () => {
+  it('should have app-expense-list component', () => {
     const explComponent = element.query(By.css('app-expense-list'));
     expect(explComponent).toBeTruthy();
   });

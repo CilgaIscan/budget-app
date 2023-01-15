@@ -4,6 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
+
 import { routes } from 'src/app/app-routing.module';
 import { FakePmService, PaymentMethods } from 'src/app/mock-data/payment-methods';
 import { PaymentMethodService } from '../payment-method.service';
@@ -55,7 +56,7 @@ describe('PaymentMethodListComponent', () => {
       expect(Number.parseInt(cells[2].nativeElement.innerHTML.trim())).toBe(PaymentMethods[1].type);
       expect(cells[3].queryAll(By.css('button'))[0].nativeElement.textContent).toBe('Delete');
       expect(cells[3].queryAll(By.css('button'))[1].nativeElement.textContent).toBe('Edit');
-      
+
       done();
     })
   });

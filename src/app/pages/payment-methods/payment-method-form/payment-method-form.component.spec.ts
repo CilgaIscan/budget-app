@@ -1,6 +1,7 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+
 import { FakePmtService } from 'src/app/mock-data/payment-method-types';
 import { FakePmService } from 'src/app/mock-data/payment-methods';
 import { PaymentMethodTypeService } from '../../payment-method-types/payment-method-type.service';
@@ -15,19 +16,19 @@ describe('PaymentMethodFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaymentMethodFormComponent ],
-      providers : [ 
+      declarations: [PaymentMethodFormComponent],
+      providers: [
         {
-          provide: PaymentMethodService, 
+          provide: PaymentMethodService,
           useClass: FakePmService,
         },
         {
-          provide: PaymentMethodTypeService, 
+          provide: PaymentMethodTypeService,
           useClass: FakePmtService,
         }
       ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

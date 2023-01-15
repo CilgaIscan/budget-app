@@ -17,10 +17,10 @@ describe('PaymentMethodTypesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaymentMethodTypesComponent, ],
-      imports: [ RouterTestingModule.withRoutes(routes) ],
+      declarations: [PaymentMethodTypesComponent,],
+      imports: [RouterTestingModule.withRoutes(routes)],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -57,7 +57,7 @@ describe('PaymentMethodTypesComponent', () => {
     })
   }));
 
-  it ('should have app-payment-method-type-list component', () => {
+  it('should have app-payment-method-type-list component', () => {
     const pmtlComponent = element.query(By.css('app-payment-method-type-list'));
     expect(pmtlComponent).toBeTruthy();
   });

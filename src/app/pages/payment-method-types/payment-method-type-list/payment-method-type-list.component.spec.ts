@@ -20,7 +20,7 @@ describe('PaymentMethodTypeListComponent', () => {
       imports: [RouterTestingModule, HttpClientTestingModule, MatTableModule],
       providers: [
         {
-          provide: PaymentMethodTypeService, 
+          provide: PaymentMethodTypeService,
           useClass: FakePmtService,
         },
       ],
@@ -55,7 +55,7 @@ describe('PaymentMethodTypeListComponent', () => {
       expect(cells[0].nativeElement.innerHTML.trim()).toBe(PaymentMethodTypes[1].name);
       expect(cells[1].queryAll(By.css('button'))[0].nativeElement.textContent).toBe('Delete');
       expect(cells[1].queryAll(By.css('button'))[1].nativeElement.textContent).toBe('Edit');
-      
+
       done();
     })
   });

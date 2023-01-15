@@ -1,3 +1,5 @@
+import { of } from "rxjs"
+
 export const Categories = {
   1: {
     name: "Rent",
@@ -11,4 +13,14 @@ export const Categories = {
     icon: "cash",
     color: "green"
   },
+}
+
+export class FakeCategoryService {
+  getAll() {
+    return of(Object.values(Categories));
+  }
+
+  getById() {
+    return of(Categories[1]);
+  }
 }

@@ -6,6 +6,6 @@ export interface Expense extends Base {
   amount: string,
   paid_at: string,
   store: string,
-  payment_type: number,
+  payment_method: number,
   category: number
 }

@@ -49,7 +49,7 @@ describe('ExpenseService', () => {
       amount: "100",
       paid_at: "",
       store: "Jeff's Burger",
-      payment_type: 2,
+      payment_method: 2,
       category: 2
     };
 
@@ -66,7 +66,7 @@ describe('ExpenseService', () => {
       amount: newBody.amount,
       store: newBody.store,
       paid_at: newBody.paid_at,
-      payment_type: newBody.payment_type,
+      payment_method: newBody.payment_method,
       category: newBody.category
     };
     mockReq.flush(response);

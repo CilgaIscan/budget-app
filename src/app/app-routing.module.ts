@@ -9,7 +9,7 @@ import { PaymentMethodTypesComponent } from './pages/payment-method-types/paymen
 import { PaymentMethodFormComponent } from './pages/payment-methods/payment-method-form/payment-method-form.component';
 import { PaymentMethodsComponent } from './pages/payment-methods/payment-methods.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'categories/new', component: CategoryFormComponent },
   { path: 'categories/edit/:id', component: CategoryFormComponent },
   { path: 'categories', component: CategoriesComponent },

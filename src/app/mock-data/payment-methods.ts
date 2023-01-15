@@ -1,3 +1,5 @@
+import { of } from "rxjs";
+
 export const PaymentMethods = {
   1: {
     name: "Salary Account",
@@ -10,5 +12,15 @@ export const PaymentMethods = {
     id: 2,
     icon: "card",
     type: 2
+  }
+}
+
+export class FakePmService {
+  getAll() {
+    return of(Object.values(PaymentMethods));
+  }
+  
+  getById() {
+    return of(PaymentMethods[1]);
   }
 }

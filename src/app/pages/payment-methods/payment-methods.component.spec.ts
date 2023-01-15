@@ -39,13 +39,13 @@ describe('PaymentMethodsComponent', () => {
     expect(texts[0].nativeElement.textContent).toBe('Welcome the payment method management page! You can add, list, edit and delete payment methods in the system.');
   });
 
-  it('should have add new pmt button and target is correct', () => {
+  it('should have add new pm button and target is correct', () => {
     const buttons = element.queryAll(By.css('a'));
     expect(buttons[0].nativeElement.textContent).toBe('Add a new payment method');
     expect(buttons[0].nativeElement.getAttribute('routerlink')).toBe('/payment-methods/new');
   });
 
-  it('should redirect to new pmt form when button clicked', waitForAsync(() => {
+  it('should redirect to new pm form when button clicked', waitForAsync(() => {
     router = TestBed.inject(Router);
     location = TestBed.inject(Location);
     fixture.detectChanges();
@@ -58,7 +58,7 @@ describe('PaymentMethodsComponent', () => {
   }));
 
   it ('should have app-payment-method-list component', () => {
-    const pmtlComponent = element.query(By.css('app-payment-method-list'));
-    expect(pmtlComponent).toBeTruthy();
+    const pmlComponent = element.query(By.css('app-payment-method-list'));
+    expect(pmlComponent).toBeTruthy();
   });
 });

@@ -4,18 +4,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
-import { of } from 'rxjs';
 import { routes } from 'src/app/app-routing.module';
-import { PaymentMethods } from 'src/app/mock-data/payment-methods';
+import { FakePmService, PaymentMethods } from 'src/app/mock-data/payment-methods';
 import { PaymentMethodService } from '../payment-method.service';
 
 import { PaymentMethodListComponent } from './payment-method-list.component';
-
-class FakePmService {
-  getAll() {
-    return of(Object.values(PaymentMethods));
-  }
-}
 
 describe('PaymentMethodListComponent', () => {
   let component: PaymentMethodListComponent;

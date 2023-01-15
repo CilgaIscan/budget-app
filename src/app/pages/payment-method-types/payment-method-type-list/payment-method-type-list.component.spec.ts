@@ -4,16 +4,10 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
-import { of } from 'rxjs';
+import { FakePmtService, PaymentMethodTypes } from 'src/app/mock-data/payment-method-types';
 import { PaymentMethodTypeService } from '../payment-method-type.service';
 
 import { PaymentMethodTypeListComponent } from './payment-method-type-list.component';
-
-class FakePmtService {
-  getAll() {
-    return of([{id: 1, name: 'Cash'}]);
-  }
-}
 
 describe('PaymentMethodTypeListComponent', () => {
   let component: PaymentMethodTypeListComponent;
@@ -26,10 +20,10 @@ describe('PaymentMethodTypeListComponent', () => {
       imports: [RouterTestingModule, HttpClientTestingModule, MatTableModule],
       providers: [
         {
-          provide: PaymentMethodTypeService, useClass: FakePmtService
-        }
-      ]
-
+          provide: PaymentMethodTypeService, 
+          useClass: FakePmtService,
+        },
+      ],
     })
       .compileComponents();
   });
@@ -58,9 +52,10 @@ describe('PaymentMethodTypeListComponent', () => {
 
       // content
       const cells = table.queryAll(By.css('tbody > tr:nth-child(1) > td'));
-      expect(cells[0].nativeElement.innerHTML.trim()).toBe('Cash');
+      expect(cells[0].nativeElement.innerHTML.trim()).toBe(PaymentMethodTypes[1].name);
       expect(cells[1].queryAll(By.css('button'))[0].nativeElement.textContent).toBe('Delete');
       expect(cells[1].queryAll(By.css('button'))[1].nativeElement.textContent).toBe('Edit');
+      
       done();
     })
   });

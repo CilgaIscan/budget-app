@@ -1,14 +1,10 @@
 import { Location } from '@angular/common';
-import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MockComponent } from 'ng-mocks';
-
 import { routes } from 'src/app/app-routing.module';
-import { PaymentMethodTypeListComponent } from './payment-method-type-list/payment-method-type-list.component';
-import { PaymentMethodTypeService } from './payment-method-type.service';
 
 import { PaymentMethodTypesComponent } from './payment-method-types.component';
 
@@ -21,10 +17,8 @@ describe('PaymentMethodTypesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaymentMethodTypesComponent, MockComponent(PaymentMethodTypeListComponent) ],
+      declarations: [ PaymentMethodTypesComponent, ],
       imports: [ RouterTestingModule.withRoutes(routes) ],
-      providers: [ PaymentMethodTypeService ],
-      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   });

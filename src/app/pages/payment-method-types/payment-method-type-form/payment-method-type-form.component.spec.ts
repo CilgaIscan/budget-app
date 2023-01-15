@@ -1,18 +1,10 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { of } from 'rxjs';
+import { FakePmtService } from 'src/app/mock-data/payment-method-types';
 import { PaymentMethodTypeService } from '../payment-method-type.service';
 
 import { PaymentMethodTypeFormComponent } from './payment-method-type-form.component';
-
-class FakePmtService {
-  getById() {
-    return of({
-      name: 'abc'
-    })
-  }
-}
 
 describe('PaymentMethodTypeFormComponent', () => {
   let component: PaymentMethodTypeFormComponent;
@@ -24,8 +16,9 @@ describe('PaymentMethodTypeFormComponent', () => {
       declarations: [ PaymentMethodTypeFormComponent ],
       providers : [ 
         {
-          provide: PaymentMethodTypeService, useClass: FakePmtService
-        } 
+          provide: PaymentMethodTypeService, 
+          useClass: FakePmtService,
+        },
       ]
     })
     .compileComponents();

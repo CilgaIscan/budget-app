@@ -48,8 +48,8 @@
   "p.pmethod.form.actions.save_button": "Save",
   "p.pmethod.form.actions.cancel_button": "Cancel",
 
-  "p.pmtype.welcome": "Welcome the payment method management page! You can add, list, edit and delete payment methods in the system.",
-  "p.pmtype.add_button": "Add a new payment method",
+  "p.pmtype.welcome": "Welcome the payment method type management page! You can add, list, edit and delete payment method types in the system.",
+  "p.pmtype.add_button": "Add a new payment method type",
   "p.pmtype.table.header.name": "Name",
   "p.pmtype.table.header.actions": "Actions",
   "p.pmtype.table.actions.delete_button": "Delete",

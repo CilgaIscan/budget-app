@@ -1,28 +1,28 @@
 <table mat-table [dataSource]="paymentMethods" class="mat-elevation-z8 main-table">
   <!-- Name Column -->
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.pmethod.table.header.name' | translate }}</th>
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
   <!-- Icon Column -->
   <ng-container matColumnDef="icon">
-    <th mat-header-cell *matHeaderCellDef> Icon </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.pmethod.table.header.icon' | translate }}</th>
     <td mat-cell *matCellDef="let element"> {{element.icon}} </td>
   </ng-container>
 
   <!-- Type Column -->
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef> Type </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.pmethod.table.header.type' | translate }}</th>
     <td mat-cell *matCellDef="let element"> {{element.type}} </td>
   </ng-container>
 
   <!-- Action Column -->
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.pmethod.table.header.actions' | translate }}</th>
     <td mat-cell *matCellDef="let element">
-      <button (click)="deletePaymentMethod(element.id)">Delete</button>
-      <button (click)="editPaymentMethod(element.id)">Edit</button>
+      <button (click)="deletePaymentMethod(element.id)">{{ 'p.pmethod.table.actions.delete_button' | translate }}</button>
+      <button (click)="editPaymentMethod(element.id)">{{ 'p.pmethod.table.actions.rfit_button' | translate }}</button>
     </td>
   </ng-container>
 

@@ -1,22 +1,22 @@
 <section class="form">
   <form [formGroup]="expenseForm" (ngSubmit)="save()">
-      <app-input [control]="expenseForm.get('title')" label="Title"></app-input>
+      <app-input [control]="expenseForm.get('title')" label="{{ 'p.expenses.form.label.title' | translate }}"></app-input>
       <br>
-      <app-select [control]="expenseForm.get('category')" [options]="categoryOptions" label="Category"></app-select>
+      <app-select [control]="expenseForm.get('category')" [options]="categoryOptions" label="{{ 'p.expenses.form.label.category' | translate }}"></app-select>
       <br>
-      <app-input [control]="expenseForm.get('amount')" label="Amount"></app-input>
+      <app-input [control]="expenseForm.get('amount')" label="{{ 'p.expenses.form.label.amount' | translate }}"></app-input>
       <br>
-      <app-select [control]="expenseForm.get('payment_method')" [options]="paymentMethodOptions" label="Payment Method"></app-select>
+      <app-select [control]="expenseForm.get('payment_method')" [options]="paymentMethodOptions" label="{{ 'p.expenses.form.label.payment_method' | translate }}"></app-select>
       <br>
-      <app-input [control]="expenseForm.get('paid_at')" label="Date"></app-input>
+      <app-input [control]="expenseForm.get('paid_at')" label="{{ 'p.expenses.form.label.paid_at' | translate }}"></app-input>
       <br>
-      <app-input [control]="expenseForm.get('store')" label="Store"></app-input>
+      <app-input [control]="expenseForm.get('store')" label="{{ 'p.expenses.form.label.store' | translate }}"></app-input>
       <br>
-      <app-input [control]="expenseForm.get('description')" label="Description"></app-input>
+      <app-input [control]="expenseForm.get('description')" label="{{ 'p.expenses.form.label.description' | translate }}"></app-input>
       <br>
       <div class="action-buttons">
-          <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">Cancel</button>
-          <button mat-raised-button color="primary" aria-label="Save" type="submit" [disabled]="expenseForm.invalid">Save</button>
+          <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">{{ 'p.expenses.form.actions.cancel_button' | translate }}</button>
+          <button mat-raised-button color="primary" aria-label="Save" type="submit" [disabled]="expenseForm.invalid">{{ 'p.expenses.form.actions.save_button' | translate }}</button>
       </div>
   </form>
 </section>

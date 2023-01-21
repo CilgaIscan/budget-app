@@ -1,46 +1,46 @@
 <table mat-table [dataSource]="expenses" class="mat-elevation-z8 main-table">
   <!-- Date Column -->
   <ng-container matColumnDef="paid_at">
-    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.expenses.table.header.paid_at' | translate }}</th>
     <td mat-cell *matCellDef="let element"> {{element.paid_at}} </td>
   </ng-container>
 
   <!-- Title Column -->
   <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.expenses.table.header.title' | translate }}</th>
     <td mat-cell *matCellDef="let element"> {{element.title}} </td>
   </ng-container>
 
   <!-- Category Column -->
   <ng-container matColumnDef="category">
-    <th mat-header-cell *matHeaderCellDef> Category </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.expenses.table.header.category' | translate }}</th>
     <td mat-cell *matCellDef="let element"> {{element.category}} </td>
   </ng-container>
 
   <!-- Amount Column -->
   <ng-container matColumnDef="amount">
-    <th mat-header-cell *matHeaderCellDef> Amount </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.expenses.table.header.amount' | translate }}</th>
     <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
   </ng-container>
 
   <!-- Payment Type Column -->
   <ng-container matColumnDef="payment_method">
-    <th mat-header-cell *matHeaderCellDef> By </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.expenses.table.header.payment_method' | translate }}</th>
     <td mat-cell *matCellDef="let element"> {{element.payment_method}} </td>
   </ng-container>
 
   <!-- Store Column -->
   <ng-container matColumnDef="store">
-    <th mat-header-cell *matHeaderCellDef> Store </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.expenses.table.header.store' | translate }}</th>
     <td mat-cell *matCellDef="let element"> {{element.store}} </td>
   </ng-container>
 
   <!-- Action Column -->
   <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'p.expenses.table.header.actions' | translate }}</th>
     <td mat-cell *matCellDef="let element">
-      <button (click)="deleteExpense(element.id)">Delete</button>
-      <button (click)="editExpense(element.id)">Edit</button>
+      <button (click)="deleteExpense(element.id)">{{ 'p.expenses.table.actions.delete_button' | translate }}</button>
+      <button (click)="editExpense(element.id)">{{ 'p.expenses.table.actions.edit_button' | translate }}</button>
     </td>
   </ng-container>
 

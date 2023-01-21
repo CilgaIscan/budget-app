@@ -1,6 +1,6 @@
 <div>
-  <p>Welcome the payment method management page! You can add, list, edit and delete payment methods in the system.</p>
-  <a mat-raised-button color="primary" routerLink="/payment-methods/new" routerLinkActive="active">Add a new payment method</a>
+  <p>{{ 'p.pmethod.welcome' | translate }}</p>
+  <a mat-raised-button color="primary" routerLink="/payment-methods/new" routerLinkActive="active">{{ 'p.pmethod.add_button' | translate }}</a>
 </div>
 <hr>
 <app-payment-method-list></app-payment-method-list>

@@ -1,13 +1,13 @@
 <section class="form">
     <form [formGroup]="categoryForm" (ngSubmit)="save()">
-        <app-input [control]="categoryForm.get('name')" label="Name"></app-input>
+        <app-input [control]="categoryForm.get('name')" label="{{ 'p.categories.form.label.name' | translate }}"></app-input>
         <br>
-        <app-input [control]="categoryForm.get('icon')" label="Icon"></app-input>
+        <app-input [control]="categoryForm.get('icon')" label="{{ 'p.categories.form.label.icon' | translate }}"></app-input>
         <br>
-        <app-input [control]="categoryForm.get('color')" label="Color"></app-input>
+        <app-input [control]="categoryForm.get('color')" label="{{ 'p.categories.form.label.color' | translate }}"></app-input>
         <div class="action-buttons">
-            <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">Cancel</button>
-            <button mat-raised-button color="primary" aria-label="Save" type="submit" [disabled]="categoryForm.invalid">Save</button>
+            <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">{{ 'p.categories.form.actions.cancel_button' | translate }}</button>
+            <button mat-raised-button color="primary" aria-label="Save" type="submit" [disabled]="categoryForm.invalid">{{ 'p.categories.form.actions.save_button' | translate }}</button>
         </div>
     </form>
 </section>

@@ -1,6 +1,6 @@
 <div>
-  <p>Welcome the expense management page! You can add, list, edit and delete expensess in the system.</p>
-  <a mat-raised-button color="primary" routerLink="/expenses/new" routerLinkActive="active">Add a new expense</a>
+  <p>{{ 'p.expenses.welcome' | translate }}</p>
+  <a mat-raised-button color="primary" routerLink="/expenses/new" routerLinkActive="active">{{ 'p.expenses.add_button' | translate }}</a>
 </div>
 <hr>
 <app-expense-list></app-expense-list>

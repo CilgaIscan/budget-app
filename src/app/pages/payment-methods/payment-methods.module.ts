@@ -9,6 +9,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { PaymentMethodsComponent } from './payment-methods.component';
 import { PaymentMethodFormComponent } from './payment-method-form/payment-method-form.component';
 import { PaymentMethodListComponent } from './payment-method-list/payment-method-list.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PaymentMethodListComponent } from './payment-method-list/payment-method
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ]
 })
 export class PaymentMethodsModule { }

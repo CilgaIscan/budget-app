@@ -9,6 +9,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ExpensesComponent } from './expenses.component';
 import { ExpenseFormComponent } from './expense-form/expense-form.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ExpenseListComponent } from './expense-list/expense-list.component';
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ]
 })
 export class ExpensesModule { }

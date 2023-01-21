@@ -8,6 +8,7 @@ import { CategoryFormComponent } from './category-form/category-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/material.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     ReactiveFormsModule,
     MaterialModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ]
 })
 export class CategoriesModule { }

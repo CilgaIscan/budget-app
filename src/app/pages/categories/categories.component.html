@@ -1,6 +1,6 @@
 <div>
-  <p>Welcome the category management page! You can add, list, edit and delete categories in the system.</p>
-  <a mat-raised-button color="primary" routerLink="/categories/new" routerLinkActive="active">Add a new category</a>
+  <p>{{ 'p.categories.welcome' | translate }}</p>
+  <a mat-raised-button color="primary" routerLink="/categories/new" routerLinkActive="active">{{ 'p.categories.add_button' | translate }}</a>
 </div>
 <hr>
 <app-category-list></app-category-list>

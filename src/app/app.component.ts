@@ -7,9 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Budget App';
-  
-  public changeLanguage(code: string) {
-    localStorage.setItem('locale', code);
+
+  public toggleLanguage() {
+    const selectedLang = localStorage.getItem('locale');
+    if (!selectedLang || selectedLang === 'en') {
+      localStorage.setItem('locale', 'tr')
+    } else {
+      localStorage.setItem('locale', 'en');
+    }
     window.location.reload();
   }
 }

@@ -1,0 +1,17 @@
+mat-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3f51b5;
+  color: #ffffff;
+  text-decoration: none;
+  height: 35px;
+}
+
+p {
+  margin: 0;
+}
+
+mat-icon {
+  vertical-align: sub;
+}

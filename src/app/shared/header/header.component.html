@@ -1,11 +1,10 @@
 <mat-toolbar color="primary">
-    <button mat-button aria-label="Example icon-button with menu icon">
-        Expenses
+    <a href="/" class="app-name">Budget App</a>
+    <span class="spacer"></span>
+    <button mat-icon-button aria-label="Example icon-button with share icon">
+        <mat-icon>info</mat-icon>
     </button>
-    <button mat-button aria-label="Example icon-button with heart icon">
-        Categories
-    </button>
-    <button mat-button aria-label="Example icon-button with share icon">
-        Payment Types
+    <button mat-icon-button aria-label="Change language" (click)="toggleLanguage()">
+      <mat-icon>language</mat-icon>
     </button>
 </mat-toolbar>

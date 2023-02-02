@@ -22,7 +22,7 @@
     <th mat-header-cell *matHeaderCellDef>{{ 'p.pmethod.table.header.actions' | translate }}</th>
     <td mat-cell *matCellDef="let element">
       <button (click)="deletePaymentMethod(element.id)">{{ 'p.pmethod.table.actions.delete_button' | translate }}</button>
-      <button (click)="editPaymentMethod(element.id)">{{ 'p.pmethod.table.actions.rfit_button' | translate }}</button>
+      <button (click)="editPaymentMethod(element.id)">{{ 'p.pmethod.table.actions.edit_button' | translate }}</button>
     </td>
   </ng-container>
 

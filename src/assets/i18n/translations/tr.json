@@ -1,4 +1,11 @@
 {
+  "layout.header.home": "Ana Sayfa",
+  "layout.header.categories": "Kategoriler",
+  "layout.header.expenses": "Harcamalar",
+  "layout.header.payment_methods": "Ödeme Metodları",
+  "layout.header.payment_method_types": "Ödeme Metodu Türleri",
+  "layout.header.language": "Dil değiştir",
+
   "p.categories.welcome": "Kategori yönetimi sayfasına hoş geldiniz! Sisteme kategori ekleyebilir, listeleyebilir, düzenleyebilir ve silebilirsiniz.",
   "p.categories.add_button": "Yeni Kategori Ekle",
   "p.categories.table.header.name": "Ad",

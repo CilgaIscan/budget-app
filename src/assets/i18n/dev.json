@@ -1,4 +1,11 @@
 {
+  "layout.header.home": "Home",
+  "layout.header.categories": "Categories",
+  "layout.header.expenses": "Expenses",
+  "layout.header.payment_methods": "Payment Methods",
+  "layout.header.payment_method_types": "Payment Method Types",
+  "layout.header.language": "Change Language",
+
   "p.categories.welcome": "Welcome the category management page! You can add, list, edit and delete categories in the system.",
   "p.categories.add_button": "Add a new category",
   "p.categories.table.header.name": "Name",
@@ -13,8 +20,8 @@
   "p.categories.form.actions.save_button": "Save",
   "p.categories.form.actions.cancel_button": "Cancel",
 
-  "p.expenses.welcome": "Welcome the category management page! You can add, list, edit and delete categories in the system.",
-  "p.expenses.add_button": "Add a new category",
+  "p.expenses.welcome": "Welcome the expense management page! You can add, list, edit and delete expenses in the system.",
+  "p.expenses.add_button": "Add a new expense",
   "p.expenses.table.header.paid_at": "Paid At",
   "p.expenses.table.header.title": "Title",
   "p.expenses.table.header.category": "Category",

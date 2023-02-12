@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
 
 
@@ -10,9 +10,9 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  public loginForm = new FormGroup({
-    username: new FormControl(null, [Validators.required, Validators.minLength(4)]),
-    password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+  public loginForm = new UntypedFormGroup({
+    username: new UntypedFormControl(null, [Validators.required, Validators.minLength(4)]),
+    password: new UntypedFormControl(null, [Validators.required, Validators.minLength(8)]),
   });
 
   constructor(private readonly router: Router, private authService: AuthService) { }

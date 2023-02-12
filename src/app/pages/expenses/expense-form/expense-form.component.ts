@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { CategoryService } from '../../categories/category.service';
 import { Category } from '../../categories/interfaces/category.interface';
@@ -17,14 +17,14 @@ export class ExpenseFormComponent implements OnInit {
   public paymentMethodOptions: any[] = [];
   public categoryOptions: any[] = [];
 
-  public expenseForm = new FormGroup({
-    title: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
-    description: new FormControl(null, [Validators.maxLength(255)]),
-    amount: new FormControl(null, [Validators.required, Validators.min(0.0001)]),
-    store: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
-    category: new FormControl(null, [Validators.required]),
-    paid_at: new FormControl(new Date(), [Validators.required]),
-    payment_method: new FormControl(null, [Validators.required]),
+  public expenseForm = new UntypedFormGroup({
+    title: new UntypedFormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+    description: new UntypedFormControl(null, [Validators.maxLength(255)]),
+    amount: new UntypedFormControl(null, [Validators.required, Validators.min(0.0001)]),
+    store: new UntypedFormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+    category: new UntypedFormControl(null, [Validators.required]),
+    paid_at: new UntypedFormControl(new Date(), [Validators.required]),
+    payment_method: new UntypedFormControl(null, [Validators.required]),
   });
 
   constructor(private readonly location: Location, private paymentMethodService: PaymentMethodService, private expenseService: ExpenseService, private categoryService: CategoryService) { }

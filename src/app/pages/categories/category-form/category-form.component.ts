@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { CategoryService } from '../category.service';
 import { Color } from '@angular-material-components/color-picker';
 
@@ -11,10 +11,10 @@ import { Color } from '@angular-material-components/color-picker';
   styleUrls: ['./category-form.component.scss']
 })
 export class CategoryFormComponent implements OnInit {
-  public categoryForm = new FormGroup({
-    name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-    icon: new FormControl(null),
-    color: new FormControl(null)
+  public categoryForm = new UntypedFormGroup({
+    name: new UntypedFormControl(null, [Validators.required, Validators.minLength(3)]),
+    icon: new UntypedFormControl(null),
+    color: new UntypedFormControl(null)
   });
 
   constructor(private readonly location: Location, private categoryService: CategoryService) { }

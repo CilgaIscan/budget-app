@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
 
 @Component({
@@ -10,11 +10,11 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./register-form.component.scss']
 })
 export class RegisterFormComponent implements OnInit {
-  public registerForm = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    username: new FormControl(null, [Validators.required, Validators.minLength(4)]),
-    password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
-    passwordRetype: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+  public registerForm = new UntypedFormGroup({
+    email: new UntypedFormControl(null, [Validators.required, Validators.email]),
+    username: new UntypedFormControl(null, [Validators.required, Validators.minLength(4)]),
+    password: new UntypedFormControl(null, [Validators.required, Validators.minLength(8)]),
+    passwordRetype: new UntypedFormControl(null, [Validators.required, Validators.minLength(8)]),
   });
 
   constructor(private readonly location: Location, private authService: AuthService) { }

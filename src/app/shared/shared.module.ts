@@ -8,9 +8,7 @@ import { InputComponent } from './input/input.component';
 
 import { MaterialModule } from 'src/material.module';
 import { SelectComponent } from './select/select.component';
-import {  MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
-import { IconPickerModule } from 'ngx-icon-picker';
-
+import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
 
 
 @NgModule({
@@ -24,8 +22,7 @@ import { IconPickerModule } from 'ngx-icon-picker';
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    NgxMatColorPickerModule,
-    IconPickerModule,
+    NgxMatColorPickerModule
   ],
   exports: [
     HeaderComponent,

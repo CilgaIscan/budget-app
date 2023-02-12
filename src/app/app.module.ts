@@ -4,8 +4,6 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

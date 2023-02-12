@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { PaymentMethodTypeService } from '../payment-method-type.service';
 
 @Component({
@@ -10,8 +10,8 @@ import { PaymentMethodTypeService } from '../payment-method-type.service';
   styleUrls: ['./payment-method-type-form.component.scss']
 })
 export class PaymentMethodTypeFormComponent implements OnInit {
-  public paymentMethodTypeForm = new FormGroup({
-    name: new FormControl(null, [Validators.required, Validators.minLength(3)])
+  public paymentMethodTypeForm = new UntypedFormGroup({
+    name: new UntypedFormControl(null, [Validators.required, Validators.minLength(3)])
   });
 
   constructor(private readonly location: Location, private paymentMethodTypeService: PaymentMethodTypeService) { }

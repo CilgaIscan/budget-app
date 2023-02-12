@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, Form, FormControl, ValidationErrors } from '@angular/forms';
+import { ValidationErrors } from '@angular/forms';
 
 
 @Component({
@@ -12,6 +12,10 @@ export class InputComponent implements OnInit {
   @Input() control!: any;
   @Input() label!: string;
   @Input() inputType: string = 'text';
+
+  @Input() isDatePicker: boolean = false;
+  @Input() isColorPicker: boolean = false;
+  @Input() isIconPicker: boolean = false;
 
   constructor() { }
 

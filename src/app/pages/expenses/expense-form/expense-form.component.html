@@ -8,7 +8,7 @@
       <br>
       <app-select [control]="expenseForm.get('payment_method')" [options]="paymentMethodOptions" label="{{ 'p.expenses.form.label.payment_method' | translate }}"></app-select>
       <br>
-      <app-input [control]="expenseForm.get('paid_at')" label="{{ 'p.expenses.form.label.paid_at' | translate }}"></app-input>
+      <app-input [isDatePicker]="true" [control]="expenseForm.get('paid_at')" label="{{ 'p.expenses.form.label.paid_at' | translate }}"></app-input>
       <br>
       <app-input [control]="expenseForm.get('store')" label="{{ 'p.expenses.form.label.store' | translate }}"></app-input>
       <br>

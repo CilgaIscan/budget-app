@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CategoryService } from '../category.service';
+import { Color } from '@angular-material-components/color-picker';
 
 @Component({
   selector: 'app-category-form',
@@ -34,6 +35,7 @@ export class CategoryFormComponent implements OnInit {
 
   public save(): void {
     if (this.categoryForm.dirty) {
+      this.normalizeColor();
       if (!this.isEditMode) {
         this.categoryService.create(this.categoryForm.value).subscribe(() => {
           this.goBack();
@@ -54,7 +56,28 @@ export class CategoryFormComponent implements OnInit {
   private getFormData() {
     this.categoryService.getById(this.id).subscribe((data) => {
       delete data["id"];
-      this.categoryForm.setValue(data);
+      
+      const c = this.hexToRGB(data.color);
+      const color = new Color(c.r, c.g, c.b, c.a);
+
+      this.categoryForm.setValue({
+        ...data,
+        color,
+      });
     })
+  }
+
+  private normalizeColor(): void {
+    const colorControl = this.categoryForm.get('color');
+    colorControl?.setValue(colorControl?.value.hex);
+  }
+
+  private hexToRGB(hex: string) {
+    var r = parseInt(hex.slice(1, 3), 16),
+        g = parseInt(hex.slice(3, 5), 16),
+        b = parseInt(hex.slice(5, 7), 16),
+        a = 1;
+
+    return {r, g, b, a};
   }
 }

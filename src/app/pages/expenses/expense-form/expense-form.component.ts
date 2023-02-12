@@ -23,7 +23,7 @@ export class ExpenseFormComponent implements OnInit {
     amount: new FormControl(null, [Validators.required, Validators.min(0.0001)]),
     store: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
     category: new FormControl(null, [Validators.required]),
-    paid_at: new FormControl(null, [Validators.required]),
+    paid_at: new FormControl(new Date(), [Validators.required]),
     payment_method: new FormControl(null, [Validators.required]),
   });
 
@@ -47,6 +47,7 @@ export class ExpenseFormComponent implements OnInit {
 
   public save(): void {
     if (this.expenseForm.dirty) {
+      this.normalizePaidAt();
       if (!this.isEditMode) {
         this.expenseService.create(this.expenseForm.value).subscribe(() => {
           this.goBack();
@@ -93,6 +94,12 @@ export class ExpenseFormComponent implements OnInit {
         }
       });
     })
+  }
+
+  private normalizePaidAt(): void {
+    const selectedDateControl = this.expenseForm.get('paid_at');
+    const d = new Date(selectedDateControl?.value);
+    selectedDateControl?.setValue(d.toISOString().split('T')[0]);
   }
 }
 

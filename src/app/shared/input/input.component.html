@@ -1,6 +1,21 @@
 <mat-form-field appearance="fill">
   <mat-label>{{label}}</mat-label>
-  <input matInput [formControl]="control" [type]="inputType">
+  <ng-container *ngIf="!(isDatePicker || isColorPicker || isIconPicker)">
+    <input matInput [formControl]="control" [type]="inputType">  
+  </ng-container>  
+  <ng-container *ngIf="isDatePicker">
+    <input matInput [formControl]="control" [matDatepicker]="datepicker">
+    <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+    <mat-datepicker #datepicker></mat-datepicker>
+  </ng-container>
+  <ng-container *ngIf="isColorPicker">
+    <input matInput [formControl]="control" [ngxMatColorPicker]="colorpicker">
+    <ngx-mat-color-toggle matSuffix [for]="colorpicker"></ngx-mat-color-toggle>
+    <ngx-mat-color-picker #colorpicker color="primary"></ngx-mat-color-picker>
+  </ng-container>
+  <ng-container *ngIf="isIconPicker">
+    <input matInput [formControl]="control">
+  </ng-container>
 </mat-form-field>
 <ng-container *ngIf="control?.touched && control?.dirty && errors">
   <br>

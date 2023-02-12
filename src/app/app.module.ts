@@ -2,13 +2,16 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from 'src/material.module';
 import { CategoriesModule } from './pages/categories/categories.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaymentMethodsModule } from './pages/payment-methods/payment-methods.module';
 import { PaymentMethodTypesModule } from './pages/payment-method-types/payment-method-types.module';
 import { ExpensesModule } from './pages/expenses/expenses.module';
@@ -44,6 +47,10 @@ import { AuthInterceptorService } from './pages/auth/auth-interceptor.service';
     provide: HTTP_INTERCEPTORS, 
     useClass: AuthInterceptorService, 
     multi: true 
+  },
+  {
+    provide: MAT_DATE_LOCALE,
+    useValue: 'en-GB'
   }],
   bootstrap: [AppComponent]
 })

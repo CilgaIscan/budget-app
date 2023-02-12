@@ -63,5 +63,17 @@
   "p.pmtype.table.actions.edit_button": "Düzenle",
   "p.pmtype.form.label.name": "Ad",
   "p.pmtype.form.actions.save_button": "Kaydet",
-  "p.pmtype.form.actions.cancel_button": "İptal"
+  "p.pmtype.form.actions.cancel_button": "İptal",
+
+  "p.register.form.label.email": "E-posta",
+  "p.register.form.label.username": "Kullanıcı Adı",
+  "p.register.form.label.password": "Parola",
+  "p.register.form.label.passwordRetype": "Parolayı Tekrar Girin",
+  "p.register.form.actions.save_button": "Kayıt Ol",
+  "p.register.form.actions.cancel_button": "İptal",
+
+  "p.login.form.label.username": "Kullanıcı Adı",
+  "p.login.form.label.password": "Parola",
+  "p.login.form.actions.save_button": "Giriş Yap",
+  "p.login.form.actions.cancel_button": "İptal"
 }

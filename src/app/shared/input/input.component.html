@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
   <mat-label>{{label}}</mat-label>
-  <input matInput [formControl]="control">
+  <input matInput [formControl]="control" [type]="inputType">
 </mat-form-field>
 <ng-container *ngIf="control?.touched && control?.dirty && errors">
   <br>

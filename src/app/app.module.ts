@@ -13,6 +13,7 @@ import { PaymentMethodsModule } from './pages/payment-methods/payment-methods.mo
 import { PaymentMethodTypesModule } from './pages/payment-method-types/payment-method-types.module';
 import { ExpensesModule } from './pages/expenses/expenses.module';
 import { catchError, forkJoin, of } from 'rxjs';
+import { AuthModule } from './pages/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { catchError, forkJoin, of } from 'rxjs';
     MaterialModule,
     TranslateModule.forRoot(),
     SharedModule,
+    AuthModule,
     CategoriesModule,
     ExpensesModule,
     PaymentMethodsModule,

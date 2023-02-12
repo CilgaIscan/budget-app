@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { CategoryFormComponent } from './pages/categories/category-form/category-form.component';
 import { ExpenseFormComponent } from './pages/expenses/expense-form/expense-form.component';
@@ -22,6 +24,8 @@ export const routes: Routes = [
   { path: 'payment-method-types/new', component: PaymentMethodTypeFormComponent },
   { path: 'payment-method-types/edit/:id', component: PaymentMethodTypeFormComponent },
   { path: 'payment-method-types', component: PaymentMethodTypesComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', component: CategoriesComponent },
 ];
 

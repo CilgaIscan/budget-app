@@ -1,0 +1,11 @@
+<section class="form">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <app-input [control]="loginForm.get('username')" label="{{ 'p.login.form.label.username' | translate }}"></app-input>
+      <br>
+      <app-input inputType="password" [control]="loginForm.get('password')" label="{{ 'p.login.form.label.password' | translate }}"></app-input>
+      <div class="action-buttons">
+          <button mat-button color="primary" aria-label="Cancel" (click)="goHome()">{{ 'p.login.form.actions.cancel_button' | translate }}</button>
+          <button mat-raised-button color="primary" aria-label="Login" type="submit" [disabled]="loginForm.invalid">{{ 'p.login.form.actions.save_button' | translate }}</button>
+      </div>
+  </form>
+</section>

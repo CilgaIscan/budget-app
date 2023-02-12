@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators, FormControl } from '@angular/forms';
 import { CategoryService } from '../category.service';
 import { Color } from '@angular-material-components/color-picker';
 
@@ -69,13 +69,15 @@ export class CategoryFormComponent implements OnInit {
 
   private normalizeColor(): void {
     const colorControl = this.categoryForm.get('color');
-    colorControl?.setValue(colorControl?.value.hex);
+    if (colorControl?.value) {
+      colorControl?.setValue(colorControl?.value.hex);
+    }
   }
 
   private hexToRGB(hex: string) {
-    var r = parseInt(hex.slice(1, 3), 16),
-        g = parseInt(hex.slice(3, 5), 16),
-        b = parseInt(hex.slice(5, 7), 16),
+    var r = parseInt(hex.slice(0, 2), 16),
+        g = parseInt(hex.slice(2, 4), 16),
+        b = parseInt(hex.slice(4, 6), 16),
         a = 1;
 
     return {r, g, b, a};

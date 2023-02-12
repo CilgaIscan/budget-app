@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { PaymentMethodTypesModule } from './pages/payment-method-types/payment-m
 import { ExpensesModule } from './pages/expenses/expenses.module';
 import { catchError, forkJoin, of } from 'rxjs';
 import { AuthModule } from './pages/auth/auth.module';
+import { AuthInterceptorService } from './pages/auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,11 @@ import { AuthModule } from './pages/auth/auth.module';
     useFactory: initApp,
     deps: [HttpClient, TranslateService],
     multi: true
+  },
+  { 
+    provide: HTTP_INTERCEPTORS, 
+    useClass: AuthInterceptorService, 
+    multi: true 
   }],
   bootstrap: [AppComponent]
 })

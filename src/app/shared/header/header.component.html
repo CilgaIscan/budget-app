@@ -1,8 +1,17 @@
 <mat-toolbar color="primary">
     <a href="/" class="app-name">Budget App</a>
     <span class="spacer"></span>
-    <button mat-icon-button aria-label="Example icon-button with share icon">
-        <mat-icon>info</mat-icon>
+    <button *ngIf="!isAuthorized()" mat-icon-button class="authButton" aria-label="Sign up" (click)="navigateTo('register')">
+      <mat-icon>how_to_reg</mat-icon>
+    </button>
+    <button *ngIf="!isAuthorized()" mat-icon-button class="authButton" aria-label="Log in" (click)="navigateTo('login')">
+      <mat-icon>login</mat-icon>
+    </button>
+    <button *ngIf="isAuthorized()" mat-icon-button class="authButton" aria-label="Log out" (click)="logOut()">
+      <mat-icon>logout</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Info">
+      <mat-icon>info</mat-icon>
     </button>
     <button mat-icon-button aria-label="Change language" (click)="toggleLanguage()">
       <mat-icon>language</mat-icon>

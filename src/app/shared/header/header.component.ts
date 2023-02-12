@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/pages/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  constructor(private readonly router: Router, private readonly authService: AuthService) { }
+
+  ngOnInit(): void {
+    this.isAuthorized();
+  }
+
+  public isAuthorized() {
+    return this.authService.isAuthorized();
+  }
+
   public toggleLanguage() {
     const selectedLang = localStorage.getItem('locale');
     if (!selectedLang || selectedLang === 'en') {
@@ -14,5 +26,14 @@ export class HeaderComponent {
       localStorage.setItem('locale', 'en');
     }
     window.location.reload();
+  }
+
+  public navigateTo(url:string) {
+    this.router.navigate([url]);
+  }
+
+  public logOut() {
+    this.authService.logout();
+    this.navigateTo('/');
   }
 }

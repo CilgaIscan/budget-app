@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, retry } from 'rxjs';
 import { Login } from './interfaces/login.interface';
 import { Register } from './interfaces/register.interface';
 import { Token } from './interfaces/token.interface';
@@ -22,13 +22,44 @@ export class AuthService {
       .post<Token>(this.baseUrl + '/jwt/create/', data)
       .pipe(
         map(token => {
-          console.log(token)
-          // login successful if there's a jwt token in the response
-          const {access, refresh } = token;
-          localStorage.setItem('access', access);
-          localStorage.setItem('refresh', refresh);
+          this.saveToken(token);
           return token;
         })
       );
+  }
+
+  public refresh(): Observable<Token> {
+    const refresh = this.getRefreshToken();
+    return this.http
+      .post<Token>(this.baseUrl + '/jwt/refresh', {refresh})
+      .pipe(
+        map(token => {
+          this.saveToken(token);
+          return token;
+        })
+      );
+  }
+
+  public saveToken(token: Token) {
+    const {access, refresh } = token;
+    localStorage.setItem('access', access);
+    localStorage.setItem('refresh', refresh);
+  }
+
+  public getAccessToken() {
+    return localStorage.getItem('access');
+  }
+
+  public getRefreshToken() {
+    return localStorage.getItem('refresh');
+  }
+
+  public isAuthorized() {
+    return !!this.getAccessToken();
+  }
+
+  public logout() {
+    localStorage.removeItem('access');
+    localStorage.removeItem('refresh');
   }
 }

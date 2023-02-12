@@ -8,7 +8,7 @@
       <br>
       <app-input inputType="password" [control]="registerForm.get('passwordRetype')" label="{{ 'p.register.form.label.passwordRetype' | translate }}"></app-input>
       <div class="action-buttons">
-          <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">{{ 'p.register.form.actions.cancel_button' | translate }}</button>
+          <button mat-button color="primary" aria-label="Cancel" type="button" (click)="goBack()">{{ 'p.register.form.actions.cancel_button' | translate }}</button>
           <button mat-raised-button color="primary" aria-label="Register" type="submit" [disabled]="registerForm.invalid">{{ 'p.register.form.actions.save_button' | translate }}</button>
       </div>
   </form>

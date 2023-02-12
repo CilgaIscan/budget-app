@@ -3,7 +3,7 @@
       <app-input [control]="paymentMethodTypeForm.get('name')" label="{{ 'p.pmtype.form.label.name' | translate }}"></app-input>
       <br>
       <div class="action-buttons">
-          <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">{{ 'p.pmtype.form.actions.cancel_button' | translate }}</button>
+          <button mat-button color="primary" aria-label="Cancel" type="button" (click)="goBack()">{{ 'p.pmtype.form.actions.cancel_button' | translate }}</button>
           <button mat-raised-button color="primary" aria-label="Save" type="submit" [disabled]="paymentMethodTypeForm.invalid">{{ 'p.pmtype.form.actions.save_button' | translate }}</button>
       </div>
   </form>

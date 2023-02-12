@@ -6,7 +6,7 @@
       <br>
       <app-select [control]="paymentMethodForm.get('type')" [options]="paymentMethodTypeOptions" label="{{ 'p.pmethod.form.label.type' | translate }}"></app-select>
       <div class="action-buttons">
-          <button mat-button color="primary" aria-label="Cancel" (click)="goBack()">{{ 'p.pmethod.form.actions.cancel_button' | translate }}</button>
+          <button mat-button color="primary" aria-label="Cancel" type="button" (click)="goBack()">{{ 'p.pmethod.form.actions.cancel_button' | translate }}</button>
           <button mat-raised-button color="primary" aria-label="Save" type="submit" [disabled]="paymentMethodForm.invalid">{{ 'p.pmethod.form.actions.save_button' | translate }}</button>
       </div>
   </form>

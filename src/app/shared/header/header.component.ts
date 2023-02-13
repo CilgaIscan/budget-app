@@ -8,10 +8,13 @@ import { AuthService } from 'src/app/pages/auth/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  user: any;
+
   constructor(private readonly router: Router, private readonly authService: AuthService) { }
 
   ngOnInit(): void {
     this.isAuthorized();
+    this.loadUser();
   }
 
   public isAuthorized() {
@@ -28,12 +31,16 @@ export class HeaderComponent {
     window.location.reload();
   }
 
-  public navigateTo(url:string) {
+  public navigateTo(url: string) {
     this.router.navigate([url]);
   }
 
   public logOut() {
     this.authService.logout();
     this.navigateTo('/');
+  }
+
+  private loadUser() {
+    this.authService.me().subscribe((user) => this.user = user);
   }
 }

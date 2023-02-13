@@ -16,10 +16,12 @@ import { PaymentMethodsModule } from './pages/payment-methods/payment-methods.mo
 import { SharedModule } from './shared/shared.module';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MaterialModule } from 'src/material.module';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

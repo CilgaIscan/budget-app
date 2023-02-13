@@ -2,16 +2,14 @@
 <mat-drawer-container class="sidenav-container">
     <mat-drawer #drawer mode="side" opened class="sidenav">
         <div class="sidenav-nav-content">
-            <div class="sidenav-nav-content-top">
                 <a mat-button routerLink="/">{{ 'layout.header.home' | translate }}</a>
-                <a mat-button routerLink="/expenses">{{ 'layout.header.expenses' | translate }}</a>
-                <a mat-button routerLink="/categories">{{ 'layout.header.categories' | translate }}</a>
-                <a mat-button routerLink="/payment-methods">{{ 'layout.header.payment_methods' | translate }}</a>
-                <a mat-button routerLink="/payment-method-types">{{ 'layout.header.payment_method_types' | translate }}</a>
-            </div>
-            <div class="sidenav-nav-content-bottom">
-                <button mat-button color="primary" (click)="toggleLanguage()">{{ 'layout.header.language' | translate }}</button>
-            </div>
+                <ng-container *ngIf="isAuthorized">
+                    <a mat-button routerLink="/expenses">{{ 'layout.header.expenses' | translate }}</a>
+                    <a mat-button routerLink="/categories">{{ 'layout.header.categories' | translate }}</a>
+                    <a mat-button routerLink="/payment-methods">{{ 'layout.header.payment_methods' | translate }}</a>
+                    <a mat-button routerLink="/payment-method-types">{{ 'layout.header.payment_method_types' | translate }}</a>    
+                </ng-container>
+                <a mat-button color="primary" (click)="toggleLanguage()">{{ 'layout.header.language' | translate }}</a>
         </div>
     </mat-drawer>
     <mat-drawer-content>

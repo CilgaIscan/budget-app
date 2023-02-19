@@ -11,6 +11,7 @@
 </mat-form-field>
 
 <mat-form-field appearance="fill" *ngIf="isColorPicker">
+  <mat-label>{{label}}</mat-label>
     <input matInput [formControl]="control" [ngxMatColorPicker]="colorpicker">
     <ngx-mat-color-toggle matSuffix [for]="colorpicker"></ngx-mat-color-toggle>
     <ngx-mat-color-picker #colorpicker color="primary"></ngx-mat-color-picker>

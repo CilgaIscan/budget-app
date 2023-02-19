@@ -1,6 +1,6 @@
 <div>
   <p>{{ 'p.pmethod.welcome' | translate }}</p>
-  <a mat-raised-button color="primary" routerLink="/payment-methods/new" routerLinkActive="active">{{ 'p.pmethod.add_button' | translate }}</a>
+  <a mat-raised-button color="primary" aria-label="Add a new payment method" routerLink="/payment-methods/new" routerLinkActive="active">{{ 'p.pmethod.add_button' | translate }}</a>
 </div>
 <hr>
 <app-payment-method-list></app-payment-method-list>

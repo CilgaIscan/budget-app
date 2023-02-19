@@ -1,6 +1,6 @@
 <section class="form">
   <form [formGroup]="paymentMethodTypeForm" (ngSubmit)="save()">
-      <app-input [control]="paymentMethodTypeForm.get('name')" label="{{ 'p.pmtype.form.label.name' | translate }}"></app-input>
+      <app-input [control]="paymentMethodTypeForm.get('name')" aria-label="Payment Method Type Name" label="{{ 'p.pmtype.form.label.name' | translate }}"></app-input>
       <br>
       <div class="action-buttons">
           <button mat-button color="primary" aria-label="Cancel" type="button" (click)="goBack()">{{ 'p.pmtype.form.actions.cancel_button' | translate }}</button>

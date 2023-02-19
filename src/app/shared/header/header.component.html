@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-    <a href="/" class="app-name">Budget App</a>
+    <a href="/" class="app-name" aria-label="Home">Budget App</a>
     <span class="spacer"></span>
     <button *ngIf="!isAuthorized()" mat-icon-button class="authButton" aria-label="Sign up" (click)="navigateTo('register')">
       <mat-icon>how_to_reg</mat-icon>

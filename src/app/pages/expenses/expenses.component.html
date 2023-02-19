@@ -1,6 +1,6 @@
 <div>
   <p>{{ 'p.expenses.welcome' | translate }}</p>
-  <a mat-raised-button color="primary" routerLink="/expenses/new" routerLinkActive="active">{{ 'p.expenses.add_button' | translate }}</a>
+  <a mat-raised-button color="primary" aria-label="Add a new expense" routerLink="/expenses/new" routerLinkActive="active">{{ 'p.expenses.add_button' | translate }}</a>
 </div>
 <hr>
 <app-expense-list></app-expense-list>

@@ -1,18 +1,18 @@
 <section class="form">
   <form [formGroup]="expenseForm" (ngSubmit)="save()">
-      <app-input [control]="expenseForm.get('title')" label="{{ 'p.expenses.form.label.title' | translate }}"></app-input>
+      <app-input [control]="expenseForm.get('title')" aria-label="Expense Title" label="{{ 'p.expenses.form.label.title' | translate }}"></app-input>
       <br>
-      <app-select [control]="expenseForm.get('category')" [options]="categoryOptions" label="{{ 'p.expenses.form.label.category' | translate }}"></app-select>
+      <app-select [control]="expenseForm.get('category')" aria-label="Expense Category" [options]="categoryOptions" label="{{ 'p.expenses.form.label.category' | translate }}"></app-select>
       <br>
-      <app-input [control]="expenseForm.get('amount')" label="{{ 'p.expenses.form.label.amount' | translate }}"></app-input>
+      <app-input [control]="expenseForm.get('amount')" aria-label="Amount" label="{{ 'p.expenses.form.label.amount' | translate }}"></app-input>
       <br>
-      <app-select [control]="expenseForm.get('payment_method')" [options]="paymentMethodOptions" label="{{ 'p.expenses.form.label.payment_method' | translate }}"></app-select>
+      <app-select [control]="expenseForm.get('payment_method')" aria-label="Payment Method" [options]="paymentMethodOptions" label="{{ 'p.expenses.form.label.payment_method' | translate }}"></app-select>
       <br>
-      <app-input [isDatePicker]="true" [control]="expenseForm.get('paid_at')" label="{{ 'p.expenses.form.label.paid_at' | translate }}"></app-input>
+      <app-input [isDatePicker]="true" aria-label="Date" [control]="expenseForm.get('paid_at')" label="{{ 'p.expenses.form.label.paid_at' | translate }}"></app-input>
       <br>
-      <app-input [control]="expenseForm.get('store')" label="{{ 'p.expenses.form.label.store' | translate }}"></app-input>
+      <app-input [control]="expenseForm.get('store')" aria-label="Store" label="{{ 'p.expenses.form.label.store' | translate }}"></app-input>
       <br>
-      <app-input [control]="expenseForm.get('description')" label="{{ 'p.expenses.form.label.description' | translate }}"></app-input>
+      <app-input [control]="expenseForm.get('description')" aria-label="Description" label="{{ 'p.expenses.form.label.description' | translate }}"></app-input>
       <br>
       <div class="action-buttons">
           <button mat-button color="primary" aria-label="Cancel" type="button" (click)="goBack()">{{ 'p.expenses.form.actions.cancel_button' | translate }}</button>

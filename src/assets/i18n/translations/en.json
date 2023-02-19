@@ -6,6 +6,11 @@
   "layout.header.payment_method_types": "Payment Method Types",
   "layout.header.language": "Change Language",
 
+  "layout.footer.text": "Made with love",
+
+  "layout.home.welcome": "Welcome",
+  "layout.home.text": "With this application, you can your expenses, expense categories, and payment related information.",
+
   "p.categories.welcome": "Welcome the category management page! You can add, list, edit and delete categories in the system.",
   "p.categories.add_button": "Add a new category",
   "p.categories.table.header.name": "Name",

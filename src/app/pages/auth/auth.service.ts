@@ -10,7 +10,7 @@ import { Token } from './interfaces/token.interface';
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://192.168.0.21:8000/auth';
+  private baseUrl = 'http://api.hgx2.tercanli.com/auth';
 
   constructor(private http: HttpClient) { }
 

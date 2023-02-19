@@ -9,7 +9,7 @@ import { Category } from './interfaces/category.interface';
   providedIn: 'root'
 })
 export class CategoryService {
-  private baseUrl = 'http://192.168.0.21:8000/api/categories';
+  private baseUrl = 'http://api.hgx2.tercanli.com/api/categories';
 
   constructor(private http: HttpClient) { }
 

@@ -4,9 +4,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateTestingModule } from 'ngx-translate-testing';
 import { routes } from 'src/app/app-routing.module';
 
 import { Expenses, FakeExpenseService } from 'src/app/mock-data/expenses';
+import { TRANSLATIONS } from 'src/app/mock-data/translations';
 import { ExpenseService } from '../expense.service';
 
 import { ExpenseListComponent } from './expense-list.component';
@@ -20,7 +22,14 @@ describe('ExpenseListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ExpenseListComponent],
       imports: [
-        RouterTestingModule.withRoutes(routes), HttpClientTestingModule, MatTableModule,
+        RouterTestingModule.withRoutes(routes), 
+        TranslateTestingModule.withTranslations(TRANSLATIONS),
+        HttpClientTestingModule, 
+        MatTableModule,
+        // SharedModule,
+        // ReactiveFormsModule,
+        // BrowserAnimationsModule,
+        
       ],
       providers: [
         { provide: ExpenseService, useClass: FakeExpenseService },
@@ -49,7 +58,7 @@ describe('ExpenseListComponent', () => {
       const headers = table.queryAll(By.css('th'));
       expect(headers.map(el => {
         return el.nativeElement.innerHTML.trim();
-      })).toEqual(['Date', 'Title', 'Category', 'Amount', 'By', 'Store', 'Actions']);
+      })).toEqual(['Paid At', 'Title', 'Category', 'Amount', 'By', 'Store', 'Actions']);
 
       // content
       const cells = table.queryAll(By.css('tbody > tr:nth-child(1) > td'));

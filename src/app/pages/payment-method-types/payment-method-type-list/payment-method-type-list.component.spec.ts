@@ -4,7 +4,9 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateTestingModule } from 'ngx-translate-testing';
 import { FakePmtService, PaymentMethodTypes } from 'src/app/mock-data/payment-method-types';
+import { TRANSLATIONS } from 'src/app/mock-data/translations';
 import { PaymentMethodTypeService } from '../payment-method-type.service';
 
 import { PaymentMethodTypeListComponent } from './payment-method-type-list.component';
@@ -17,7 +19,12 @@ describe('PaymentMethodTypeListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PaymentMethodTypeListComponent],
-      imports: [RouterTestingModule, HttpClientTestingModule, MatTableModule],
+      imports: [
+        TranslateTestingModule.withTranslations(TRANSLATIONS),
+        RouterTestingModule, 
+        HttpClientTestingModule, 
+        MatTableModule
+      ],
       providers: [
         {
           provide: PaymentMethodTypeService,

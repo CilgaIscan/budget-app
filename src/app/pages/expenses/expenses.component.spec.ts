@@ -1,12 +1,17 @@
 import { Location } from '@angular/common';
-import { DebugElement } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateTestingModule } from 'ngx-translate-testing';
 import { routes } from 'src/app/app-routing.module';
+import { TRANSLATIONS } from 'src/app/mock-data/translations';
 
 import { ExpensesComponent } from './expenses.component';
+
+@Component({'selector': 'app-expense-list'})
+class MockExpenseListComponent {}
 
 describe('ExpensesComponent', () => {
   let component: ExpensesComponent;
@@ -17,8 +22,14 @@ describe('ExpensesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ExpensesComponent],
-      imports: [RouterTestingModule.withRoutes(routes)],
+      declarations: [
+        ExpensesComponent,
+        MockExpenseListComponent
+      ],
+      imports: [
+        RouterTestingModule.withRoutes(routes),
+        TranslateTestingModule.withTranslations(TRANSLATIONS),
+      ],
     })
       .compileComponents();
   });
@@ -36,7 +47,7 @@ describe('ExpensesComponent', () => {
 
   it('should have info text', () => {
     const texts = element.queryAll(By.css('p'));
-    expect(texts[0].nativeElement.textContent).toBe('Welcome the expense management page! You can add, list, edit and delete expensess in the system.');
+    expect(texts[0].nativeElement.textContent).toBe('Welcome the expense management page! You can add, list, edit and delete expenses in the system.');
   });
 
   it('should have add new expense button and target is correct', () => {

@@ -1,12 +1,17 @@
 import { Location } from '@angular/common';
-import { DebugElement } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateTestingModule } from 'ngx-translate-testing';
 import { routes } from 'src/app/app-routing.module';
+import { TRANSLATIONS } from 'src/app/mock-data/translations';
 
 import { PaymentMethodTypesComponent } from './payment-method-types.component';
+
+@Component({'selector': 'app-payment-method-type-list'})
+class MockPaymentMethodTypeListComponent {}
 
 describe('PaymentMethodTypesComponent', () => {
   let component: PaymentMethodTypesComponent;
@@ -17,8 +22,14 @@ describe('PaymentMethodTypesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PaymentMethodTypesComponent,],
-      imports: [RouterTestingModule.withRoutes(routes)],
+      declarations: [
+        PaymentMethodTypesComponent, 
+        MockPaymentMethodTypeListComponent,
+      ],
+      imports: [
+        RouterTestingModule.withRoutes(routes),
+        TranslateTestingModule.withTranslations(TRANSLATIONS),
+      ],
     })
       .compileComponents();
   });

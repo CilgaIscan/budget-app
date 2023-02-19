@@ -4,9 +4,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateTestingModule } from 'ngx-translate-testing';
 
 import { routes } from 'src/app/app-routing.module';
 import { Categories, FakeCategoryService } from 'src/app/mock-data/categories';
+import { TRANSLATIONS } from 'src/app/mock-data/translations';
 import { CategoryService } from '../category.service';
 
 import { CategoryListComponent } from './category-list.component';
@@ -19,7 +21,12 @@ describe('CategoryListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CategoryListComponent],
-      imports: [RouterTestingModule.withRoutes(routes), HttpClientTestingModule, MatTableModule],
+      imports: [
+        RouterTestingModule.withRoutes(routes), 
+        TranslateTestingModule.withTranslations(TRANSLATIONS),
+        HttpClientTestingModule, 
+        MatTableModule,
+      ],
       providers: [
         { provide: CategoryService, useClass: FakeCategoryService },
       ],

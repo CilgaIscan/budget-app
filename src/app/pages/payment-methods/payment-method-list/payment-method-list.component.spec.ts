@@ -4,9 +4,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
+import { TranslateTestingModule } from 'ngx-translate-testing';
 
 import { routes } from 'src/app/app-routing.module';
 import { FakePmService, PaymentMethods } from 'src/app/mock-data/payment-methods';
+import { TRANSLATIONS } from 'src/app/mock-data/translations';
 import { PaymentMethodService } from '../payment-method.service';
 
 import { PaymentMethodListComponent } from './payment-method-list.component';
@@ -19,7 +21,12 @@ describe('PaymentMethodListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PaymentMethodListComponent],
-      imports: [RouterTestingModule.withRoutes(routes), HttpClientTestingModule, MatTableModule],
+      imports: [
+        RouterTestingModule.withRoutes(routes), 
+        TranslateTestingModule.withTranslations(TRANSLATIONS),
+        HttpClientTestingModule, 
+        MatTableModule,
+      ],
       providers: [
         { provide: PaymentMethodService, useClass: FakePmService },
       ],

@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
 describe('AuthService', () => {
   let service: AuthService;
   let testingController: HttpTestingController;
-  const baseUrl = 'http://api.hgx2.tercanli.com/auth';
+  const baseUrl = 'https://api.hgx2.tercanli.com/auth';
 
   beforeEach(() => {
     TestBed.configureTestingModule({

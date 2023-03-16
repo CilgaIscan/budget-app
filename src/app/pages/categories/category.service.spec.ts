@@ -7,7 +7,7 @@ import { Categories } from 'src/app/mock-data/categories';
 describe('CategoryService', () => {
   let service: CategoryService;
   let testingController: HttpTestingController;
-  const baseUrl = 'http://api.hgx2.tercanli.com/api/categories';
+  const baseUrl = 'https://api.hgx2.tercanli.com/api/categories';
 
   beforeEach(() => {
     TestBed.configureTestingModule({

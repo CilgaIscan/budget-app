@@ -7,7 +7,7 @@ import { PaymentMethodTypes } from 'src/app/mock-data/payment-method-types';
 describe('PaymentMethodTypeService', () => {
   let service: PaymentMethodTypeService;
   let testingController: HttpTestingController;
-  const baseUrl = 'http://api.hgx2.tercanli.com/api/payment-method-types';
+  const baseUrl = 'https://api.hgx2.tercanli.com/api/payment-method-types';
 
   beforeEach(() => {
     TestBed.configureTestingModule({

@@ -7,7 +7,7 @@ import { Expense } from './interfaces/expenses.interface';
   providedIn: 'root'
 })
 export class ExpenseService {
-  private baseUrl = 'http://api.hgx2.tercanli.com/api/expenses';
+  private baseUrl = 'https://api.hgx2.tercanli.com/api/expenses';
 
   constructor(private http: HttpClient) { }
 

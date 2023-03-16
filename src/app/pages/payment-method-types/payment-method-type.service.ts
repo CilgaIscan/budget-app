@@ -8,7 +8,7 @@ import { PaymentMethodType } from './interfaces/payment-method-types.interface';
   providedIn: 'root'
 })
 export class PaymentMethodTypeService {
-  private baseUrl = 'http://api.hgx2.tercanli.com/api/payment-method-types';
+  private baseUrl = 'https://api.hgx2.tercanli.com/api/payment-method-types';
 
   constructor(private http: HttpClient) { }
 

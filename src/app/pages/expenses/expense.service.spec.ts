@@ -7,7 +7,7 @@ import { Expenses } from 'src/app/mock-data/expenses';
 describe('ExpenseService', () => {
   let service: ExpenseService;
   let testingController: HttpTestingController;
-  const baseUrl = 'http://api.hgx2.tercanli.com/api/expenses';
+  const baseUrl = 'https://api.hgx2.tercanli.com/api/expenses';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
